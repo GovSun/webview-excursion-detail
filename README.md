@@ -1,0 +1,20 @@
+# MTravel: экран деталей экскурсии
+
+**Открыть прототип: https://govsun.github.io/webview-excursion-detail/**
+
+Webview-прототип экрана деталей экскурсии из Figma («Экскурсии» → «Детальная страница»). Лучше смотреть с телефона.
+
+- Шапка при скролле перетекает из прозрачной в белую.
+- Нижняя панель с ценой появляется, когда кнопка на обложке уходит под шапку.
+- Избранное: сердце в шапке и на карточках, снекбар.
+- Фото обложки листаются свайпом.
+- Кейсы переключаются в пилюле «Debug» внизу слева: один временной слот, несколько фото, одно фото, формат обложки, нет фото.
+
+Прямые ссылки на кейсы:
+[один временной слот](https://govsun.github.io/webview-excursion-detail/?case=one-slot) ·
+[несколько фото](https://govsun.github.io/webview-excursion-detail/?case=pictures) ·
+[одно фото](https://govsun.github.io/webview-excursion-detail/?case=one-photo) ·
+[формат обложки](https://govsun.github.io/webview-excursion-detail/?case=cover-format) ·
+[нет фото](https://govsun.github.io/webview-excursion-detail/?case=no-photo)
+
+В этой ветке лежит только готовая сборка сайта (GitHub Pages).
