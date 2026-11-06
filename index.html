@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <script>
-      // Phones: the layout is the 360 px Figma frame and the browser (or the app's webview) scales it
-      // to the screen width, so on a 393 × 852 iPhone everything is ×1.092: type, spacing, photos,
-      // buttons. Tablets and desktop (and `?fit=0`) keep device-width.
+      // Phones: the layout is the 393 px Figma frame and the browser (or the app's webview) scales it
+      // to the screen width: 1:1 on a 393 pt iPhone, ×1.023 / ×1.069 / ×1.12 on 402 / 420 / 440 pt,
+      // slightly down on 390 / 375: type, spacing, photos, buttons. Tablets and desktop (and `?fit=0`)
+      // keep device-width.
       (function () {
         var w = Math.min(screen.width, screen.height);
-        if (w <= 480 && w !== 360 && !/[?&]fit=0\b/.test(location.search)) {
-          document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=360, viewport-fit=cover');
+        if (w <= 480 && w !== 393 && !/[?&]fit=0\b/.test(location.search)) {
+          document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=393, viewport-fit=cover');
+          // WebKit reports env(safe-area-inset-*) in device points, and the page is then scaled by
+          // screen / 393: --vp-inv (393 / w) takes that scale back out, so 62 pt stays 62 pt (tokens.css).
+          document.documentElement.style.setProperty('--vp-inv', String(393 / w));
         }
       })();
     </script>
@@ -23,8 +27,8 @@
     <meta name="apple-mobile-web-app-title" content="Экскурсия" />
     <link rel="icon" href="data:," />
     <title>Экскурсия</title>
-    <script type="module" crossorigin src="./assets/index-BohqIf4S.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-ersZvnM2.css">
+    <script type="module" crossorigin src="./assets/index-TXUTgvkw.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BTuN2M8W.css">
   </head>
   <body>
     <div id="root"></div>
