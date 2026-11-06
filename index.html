@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script>
+      // Phones: the layout is the 360 px Figma frame and the browser (or the app's webview) scales it
+      // to the screen width, so on a 393 × 852 iPhone everything is ×1.092: type, spacing, photos,
+      // buttons. Tablets and desktop (and `?fit=0`) keep device-width.
+      (function () {
+        var w = Math.min(screen.width, screen.height);
+        if (w <= 480 && w !== 360 && !/[?&]fit=0\b/.test(location.search)) {
+          document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=360, viewport-fit=cover');
+        }
+      })();
+    </script>
     <!-- Status-bar strip in a Safari tab: dark over the cover; the screen switches it to white with the white appbar. -->
     <meta name="theme-color" content="#0f0f13" />
     <!-- Added to the Home Screen it opens full screen with the photo under the status bar, like the app's webview. -->
